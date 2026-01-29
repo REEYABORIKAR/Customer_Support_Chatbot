@@ -2,15 +2,26 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import os
 
 from chatbot.core.chatbot_engine import ChatbotEngine
 from chatbot.config.setting import WELCOME_MESSAGE
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = FastAPI()
 engine = ChatbotEngine()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# ✅ Use absolute paths
+app.mount(
+    "/static",
+    StaticFiles(directory=os.path.join(BASE_DIR, "static")),
+    name="static"
+)
+
+templates = Jinja2Templates(
+    directory=os.path.join(BASE_DIR, "templates")
+)
 
 
 @app.get("/", response_class=HTMLResponse)
