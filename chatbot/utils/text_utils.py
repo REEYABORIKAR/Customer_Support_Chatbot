@@ -19,9 +19,6 @@ CUSTOM_CORRECTIONS = {
 
 
 def clean_text(text: str) -> str:
-    """
-    Normalize, clean, and correct spelling in user input
-    """
     try:
         text = text.lower()
         text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
@@ -42,15 +39,6 @@ def clean_text(text: str) -> str:
 
 
 def validate_input(text: str):
-    """
-    Validate user input before processing
-
-    Returns:
-        (bool, str | None)
-        False, "empty"    -> empty input
-        False, "too_long" -> input too long
-        True, None        -> valid input
-    """
     try:
         if not text or len(text.strip()) == 0:
             return False, "empty"

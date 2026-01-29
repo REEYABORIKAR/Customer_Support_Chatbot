@@ -12,7 +12,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = FastAPI()
 engine = ChatbotEngine()
 
-# ✅ Use absolute paths
 app.mount(
     "/static",
     StaticFiles(directory=os.path.join(BASE_DIR, "static")),

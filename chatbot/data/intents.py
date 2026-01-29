@@ -26,7 +26,7 @@ INTENTS = [
             "very disappointed"
         ],
         "responses": [
-            "I’m really sorry for the inconvenience 😔",
+            "I’m really sorry for the inconvenience ",
             "I understand your frustration. Let me help resolve this.",
             "Your experience matters to us. Let’s fix this.",
             "I apologize for the trouble. Would you like me to connect you to support?"
@@ -108,7 +108,7 @@ INTENTS = [
             "product", "products",
             "what do you sell", "features",
             "product details", "specification",
-            "do you have specifications"
+            "do you have specification"
         ],
         "responses": [
             "Our products are built with high quality standards. Please tell me which product you're interested in.",
@@ -125,7 +125,7 @@ INTENTS = [
         "patterns": [
             "ok", "okay", "yes", "sure",
             "sounds good", "alright",
-            "no", "not really", "dont want that"
+            "no", "not really"
         ],
         "responses": [
             "Alright  Let me know how I can help you further.",
@@ -141,8 +141,7 @@ INTENTS = [
         "intent": "thank_you",
         "patterns": [
             "thanks", "thank you",
-            "thank you so much", "appreciate it",
-            "thx"
+            "thank you so much", "appreciate it"
         ],
         "responses": [
             "You're welcome! ",
