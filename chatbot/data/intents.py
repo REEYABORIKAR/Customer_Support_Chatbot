@@ -128,7 +128,7 @@ INTENTS = [
             "no", "not really", "dont want that"
         ],
         "responses": [
-            "Alright 👍 Let me know how I can help you further.",
+            "Alright  Let me know how I can help you further.",
             "Okay! If you need anything else, just tell me.",
             "Got it. What would you like to do next?",
             "No problem. Let me know if you change your mind."
@@ -145,7 +145,7 @@ INTENTS = [
             "thx"
         ],
         "responses": [
-            "You're welcome! 😊",
+            "You're welcome! ",
             "Happy to help!",
             "Glad I could assist you.",
             "Anytime! Let me know if you need anything else."

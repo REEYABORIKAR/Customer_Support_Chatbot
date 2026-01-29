@@ -6,7 +6,6 @@ from chatbot.logging.logger import logging
 
 spell = SpellChecker()
 
-# Custom typo corrections (domain-specific)
 CUSTOM_CORRECTIONS = {
     "bas": "bad",
     "servic": "service",

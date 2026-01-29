@@ -9,13 +9,11 @@ def match_intent(user_input: str) -> dict:
         matched = []
 
         for intent in INTENTS:
-
-            # ---------- GREETING ----------
+            
             if intent["intent"] == "greeting":
                 if user_words & {"hi", "hello", "hey"} and len(user_words) <= 3:
                     matched.append(intent)
 
-            # ---------- COMPLAINT / NEGATIVE FEEDBACK ----------
             elif intent["intent"] == "complaint":
                 if user_words & {
                     "unhappy", "frustrating", "bad",
@@ -23,12 +21,10 @@ def match_intent(user_input: str) -> dict:
                 }:
                     matched.append(intent)
 
-            # ---------- REFUND / RETURN ----------
             elif intent["intent"] == "refund_policy":
                 if user_words & {"return", "refund", "cancel"}:
                     matched.append(intent)
 
-            # ---------- ORDER STATUS ----------
             elif intent["intent"] == "order_status":
                 if user_words & {
                     "order", "track", "status",
@@ -36,17 +32,14 @@ def match_intent(user_input: str) -> dict:
                 }:
                     matched.append(intent)
 
-            # ---------- SHIPPING INFO ----------
             elif intent["intent"] == "shipping_info":
                 if user_words & {"shipping", "delivery"}:
                     matched.append(intent)
 
-            # ---------- WORKING HOURS ----------
             elif intent["intent"] == "working_hours":
                 if user_words & {"hours", "open", "timings"}:
                     matched.append(intent)
 
-            # ---------- PRODUCT INFO ----------
             elif intent["intent"] == "product_info":
                 if user_words & {
                     "product", "products", "features",
@@ -54,7 +47,6 @@ def match_intent(user_input: str) -> dict:
                 }:
                     matched.append(intent)
 
-            # ---------- CONFIRMATION / ACK ----------
             elif intent["intent"] == "confirmation":
                 if user_words & {
                     "ok", "okay", "yes", "sure",
@@ -62,14 +54,12 @@ def match_intent(user_input: str) -> dict:
                 }:
                     matched.append(intent)
 
-            # ---------- THANK YOU ----------
             elif intent["intent"] == "thank_you":
                 if user_words & {
                     "thanks", "thank", "appreciate", "thx"
                 }:
                     matched.append(intent)
 
-            # ---------- CONTACT SUPPORT ----------
             elif intent["intent"] == "contact_support":
                 if user_words & {
                     "support", "contact", "help",
@@ -77,7 +67,6 @@ def match_intent(user_input: str) -> dict:
                 }:
                     matched.append(intent)
 
-            # ---------- GOODBYE ----------
             elif intent["intent"] == "goodbye":
                 if user_words & {"bye", "goodbye", "see", "exit"}:
                     matched.append(intent)
@@ -85,7 +74,6 @@ def match_intent(user_input: str) -> dict:
         if not matched:
             return None
 
-        # Priority-based resolution (lower number = higher priority)
         matched.sort(key=lambda x: x["priority"])
         return matched[0]
 
