@@ -4,7 +4,6 @@ async function sendMessage() {
 
     if (!input.value.trim()) return;
 
-    // User message
     const userDiv = document.createElement("div");
     userDiv.className = "user-msg";
     userDiv.innerText = input.value;
@@ -13,7 +12,6 @@ async function sendMessage() {
     const message = input.value;
     input.value = "";
 
-    // Send to backend
     const response = await fetch("/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -22,7 +20,6 @@ async function sendMessage() {
 
     const data = await response.json();
 
-    // Bot message
     const botDiv = document.createElement("div");
     botDiv.className = "bot-msg";
     botDiv.innerText = data.response;
