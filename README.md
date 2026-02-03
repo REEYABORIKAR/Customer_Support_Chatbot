@@ -1,75 +1,93 @@
-# Customer Support Chatbot 🤖
+Customer Support Chatbot 🤖
+A hybrid customer support chatbot built with FastAPI. This bot combines rule-based intent recognition with a Retrieval-Augmented Generation (RAG) engine powered by FAISS and Gemini AI to provide accurate and natural responses to customer inquiries.
 
-A lightweight, rule-based customer support chatbot built with **FastAPI**. This bot uses keyword matching and logical triggers to assist users with common inquiries like order status, refunds, shipping, and general support.
+🚀 Features
+Hybrid Intent Recognition: Uses a rule-based system for common tasks (greetings, order tracking) and a RAG engine for complex queries.
 
-## 🚀 Features
+RAG Engine (Retrieval-Augmented Generation): Leverages FAISS for vector search and Sentence Transformers to retrieve relevant information from a local knowledge base.
 
-* **Rule-Based Intent Recognition:** Matches user input against predefined intents (orders, refunds, shipping, etc.).
-* **Order Tracking Simulation:** Handles multi-turn logic to request and validate order IDs.
-* **Text Preprocessing:** Normalizes text, removes special characters, and corrects common spelling mistakes.
-* **Web-Based Interface:** Simple and clean UI built with HTML/CSS and JavaScript for real-time interaction.
-* **Custom Exception Handling & Logging:** Robust error management and session-based logging for debugging.
+Gemini AI Integration: Generates human-like, single-sentence responses using Google's Gemini 1.5 Pro model when an API key is provided.
 
-## 🛠️ Tech Stack
+Order Tracking Simulation: Implements multi-turn logic to request and validate order IDs (5–20 alphanumeric characters).
 
-* **Backend:** [FastAPI](https://fastapi.tiangolo.com/)
-* **Templating:** [Jinja2](https://jinja.palletsprojects.com/)
-* **Spelling Correction:** [pyspellchecker](https://pypi.org/project/pyspellchecker/)
-* **Frontend:** HTML5, CSS3, JavaScript
+Advanced Text Preprocessing: Normalizes text, removes special characters, and utilizes pyspellchecker alongside custom corrections for common typos.
 
-## 📋 Prerequisites
+Web-Based Interface: Real-time interaction via a clean UI built with HTML/CSS and JavaScript.
 
-* Python 3.8+
-* `pip` (Python package manager)
+Robust Error Handling: Features custom exception management and session-based logging for debugging.
 
-## ⚙️ Installation & Setup
+🛠️ Tech Stack
+Backend: FastAPI
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/REEYABORIKAR/Customer_Support_Chatbot.git](https://github.com/REEYABORIKAR/Customer_Support_Chatbot.git)
-    cd Customer_Support_Chatbot
-    ```
+AI/ML: Google GenAI (Gemini 1.5 Pro), FAISS, Sentence-Transformers
 
-2.  **Create a virtual environment:**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
+Templating: Jinja2
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+Spelling Correction: pyspellchecker
 
-4.  **Run the application:**
-    ```bash
-    uvicorn app:app --reload
-    ```
+Frontend: HTML5, CSS3, JavaScript
 
-5.  **Access the Chatbot:**
-    Open your browser and navigate to `http://127.0.0.1:8000`.
+📋 Prerequisites
+Python 3.8+
 
-## 💬 Supported Scenarios
+pip (Python package manager)
 
-The bot is currently programmed to handle the following topics:
-* **Greetings:** Hello, Hi, Hey.
-* **Order Status:** Tracking and checking order delivery (Requires a valid 5–20 character ID).
-* **Refunds:** Information on refund policies and processing times.
-* **Shipping:** Delivery charges and estimated times.
-* **Complaints:** Handling unhappy customer feedback.
-* **General:** Working hours, product info, and support contact.
+(Optional) Gemini API Key for advanced responses
 
-## 📁 Project Structure
+⚙️ Installation & Setup
+Clone the repository:
 
-```text
+Bash
+git clone https://github.com/REEYABORIKAR/Customer_Support_Chatbot.git
+cd Customer_Support_Chatbot
+Create a virtual environment:
+
+Bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install dependencies:
+
+Bash
+pip install -r requirements.txt
+Configure Environment Variables: Create a .env file in the root directory and add your API key to enable Gemini AI:
+
+Plaintext
+GEMINI_API_KEY=your_gemini_api_key_here
+Run the application:
+
+Bash
+uvicorn app:app --reload
+Access the Chatbot: Navigate to http://127.0.0.1:8000 in your browser.
+
+💬 Supported Scenarios
+Greetings: Hello, Hi, Hey.
+
+Order Status: Tracking and checking delivery (requires valid ID).
+
+Refunds: Information on policies and processing times.
+
+Shipping: Delivery charges and estimated timelines.
+
+Complaints: Handling customer feedback and frustrations.
+
+General Inquiry: Working hours (Mon–Fri, 9 AM – 6 PM), product info, and support contact.
+
+📁 Project Structure
+Plaintext
 ├── app.py                # FastAPI application entry point
 ├── chatbot/
-│   ├── core/             # Chatbot logic and intent matching
-│   ├── config/           # Static configurations and messages
-│   ├── data/             # Predefined intent patterns and responses
-│   ├── exception/        # Custom exception handling
+│   ├── core/             
+│   │   ├── chatbot_engine.py # Main logic coordinator
+│   │   ├── intent_matcher.py # Rule-based keyword matching
+│   │   └── rag_engine.py     # FAISS retrieval and Gemini generation
+│   ├── config/           # App settings and constants
+│   ├── data/             
+│   │   ├── intents.py        # Predefined intent patterns
+│   │   └── knowledge_base.txt # RAG source documents
+│   ├── exception/        # Custom error handling
 │   ├── logging/          # Logging configuration
-│   └── utils/            # Text cleaning and validation utilities
-├── static/               # CSS and JavaScript files
-├── templates/            # HTML templates (Jinja2)
+│   └── utils/            # Text cleaning and validation
+├── static/               # Frontend assets (CSS/JS)
+├── templates/            # HTML templates
+├── .env                  # API keys (not included in repo)
 └── requirements.txt      # Project dependencies
