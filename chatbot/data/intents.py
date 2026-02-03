@@ -46,9 +46,6 @@ INTENTS = [
         "responses": [
             "Refunds are processed within 5–7 business days after approval.",
             "You can request a refund within 10 days of delivery.",
-            "I understand your concern regarding the refund.",
-            "Let me guide you through the refund process.",
-            "If needed, I can connect you with our support team."
         ],
         "priority": 3,
         "escalate": True

@@ -45,7 +45,6 @@ def match_intent(user_input: str) -> dict:
         }
 
         for intent in INTENTS:
-
             if intent["intent"] == "greeting":
                 if user_text in greeting_phrases or user_words & {"hi", "hello", "hey"}:
                     matched.append(intent)
@@ -117,7 +116,10 @@ def match_intent(user_input: str) -> dict:
             return None
 
         matched.sort(key=lambda x: x["priority"])
-        return matched[0]
+        best_intent = matched[0].copy()
+        best_intent["confidence"] = 0.9 if len(matched) == 1 else 0.6
+
+        return best_intent
 
     except Exception as e:
         raise CustomerServiceException(e, sys)
