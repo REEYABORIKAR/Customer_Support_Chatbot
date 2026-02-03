@@ -1,79 +1,86 @@
-Customer Support Chatbot 🤖
-A hybrid customer support chatbot built with FastAPI. This bot combines rule-based intent recognition with a Retrieval-Augmented Generation (RAG) engine powered by FAISS and Gemini AI to provide accurate and natural responses to customer inquiries.
+# Customer Support Chatbot
 
-🚀 Features
-Hybrid Intent Recognition: Uses a rule-based system for common tasks (greetings, order tracking) and a RAG engine for complex queries.
+A hybrid customer support chatbot built with **FastAPI**. This bot combines rule-based intent recognition with a **Retrieval-Augmented Generation (RAG)** engine powered by **FAISS** and **Gemini AI** to provide accurate and natural responses to customer inquiries.
 
-RAG Engine (Retrieval-Augmented Generation): Leverages FAISS for vector search and Sentence Transformers to retrieve relevant information from a local knowledge base.
+## Features
 
-Gemini AI Integration: Generates human-like, single-sentence responses using Google's Gemini 1.5 Pro model when an API key is provided.
+* **Hybrid Intent Recognition:** Uses a rule-based system for common tasks like greetings and order tracking, and a RAG engine for more complex queries.
+* **RAG Engine (Retrieval-Augmented Generation):** Leverages **FAISS** for vector search and **Sentence Transformers** to retrieve relevant information from a local knowledge base.
+* **Gemini AI Integration:** Generates human-like, single-sentence responses using Google's **Gemini 1.5 Pro** model when an API key is provided.
+* **Order Tracking Simulation:** Implements multi-turn logic to request and validate order IDs consisting of 5–20 alphanumeric characters.
+* **Advanced Text Preprocessing:** Normalizes text, removes special characters, and utilizes `pyspellchecker` alongside custom corrections for common typos.
+* **Web-Based Interface:** Real-time interaction via a clean UI built with HTML/CSS and JavaScript.
+* **Robust Error Handling:** Features custom exception management and session-based logging for debugging.
 
-Order Tracking Simulation: Implements multi-turn logic to request and validate order IDs (5–20 alphanumeric characters).
+## Tech Stack
 
-Advanced Text Preprocessing: Normalizes text, removes special characters, and utilizes pyspellchecker alongside custom corrections for common typos.
+* **Backend:** FastAPI
+* **AI/ML:** Google GenAI (Gemini 1.5 Pro), FAISS, Sentence-Transformers
+* **Templating:** Jinja2
+* **Spelling Correction:** pyspellchecker
+* **Frontend:** HTML5, CSS3, JavaScript
 
-Web-Based Interface: Real-time interaction via a clean UI built with HTML/CSS and JavaScript.
+## Prerequisites
 
-Robust Error Handling: Features custom exception management and session-based logging for debugging.
+* Python 3.8+
+* `pip` (Python package manager)
+* (Optional) Gemini API Key for advanced responses
 
-🛠️ Tech Stack
-Backend: FastAPI
+## Installation and Setup
 
-AI/ML: Google GenAI (Gemini 1.5 Pro), FAISS, Sentence-Transformers
-
-Templating: Jinja2
-
-Spelling Correction: pyspellchecker
-
-Frontend: HTML5, CSS3, JavaScript
-
-📋 Prerequisites
-Python 3.8+
-
-pip (Python package manager)
-
-(Optional) Gemini API Key for advanced responses
-
-⚙️ Installation & Setup
-Clone the repository:
-
-Bash
+1. **Clone the repository:**
+```bash
 git clone https://github.com/REEYABORIKAR/Customer_Support_Chatbot.git
 cd Customer_Support_Chatbot
-Create a virtual environment:
 
-Bash
+```
+
+
+2. **Create a virtual environment:**
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
 
-Bash
+```
+
+
+3. **Install dependencies:**
+```bash
 pip install -r requirements.txt
-Configure Environment Variables: Create a .env file in the root directory and add your API key to enable Gemini AI:
 
-Plaintext
+```
+
+
+4. **Configure Environment Variables:**
+Create a `.env` file in the root directory and add your API key to enable Gemini AI:
+```text
 GEMINI_API_KEY=your_gemini_api_key_here
-Run the application:
 
-Bash
+```
+
+
+5. **Run the application:**
+```bash
 uvicorn app:app --reload
-Access the Chatbot: Navigate to http://127.0.0.1:8000 in your browser.
 
-💬 Supported Scenarios
-Greetings: Hello, Hi, Hey.
+```
 
-Order Status: Tracking and checking delivery (requires valid ID).
 
-Refunds: Information on policies and processing times.
+6. **Access the Chatbot:**
+Navigate to `http://127.0.0.1:8000` in your browser.
 
-Shipping: Delivery charges and estimated timelines.
+## Supported Scenarios
 
-Complaints: Handling customer feedback and frustrations.
+* **Greetings:** Hello, Hi, Hey.
+* **Order Status:** Tracking and checking delivery (requires valid ID).
+* **Refunds:** Information on policies and processing times.
+* **Shipping:** Delivery charges and estimated timelines.
+* **Complaints:** Handling customer feedback and frustrations.
+* **General Inquiry:** Working hours (Mon–Fri, 9 AM – 6 PM), product info, and support contact.
 
-General Inquiry: Working hours (Mon–Fri, 9 AM – 6 PM), product info, and support contact.
+## Project Structure
 
-📁 Project Structure
-Plaintext
+```text
 ├── app.py                # FastAPI application entry point
 ├── chatbot/
 │   ├── core/             
@@ -91,3 +98,5 @@ Plaintext
 ├── templates/            # HTML templates
 ├── .env                  # API keys (not included in repo)
 └── requirements.txt      # Project dependencies
+
+```
